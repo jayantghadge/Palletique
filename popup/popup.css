@@ -1,0 +1,50 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5; /* Light background color */
+}
+
+.popup-container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  width: 250px; /* Adjust the width as needed */
+}
+
+h1 {
+  color: #333333;
+  font-size: 1.5em; /* Larger heading font size */
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666666;
+  font-size: 14px; /* Regular font size */
+  margin-bottom: 15px;
+}
+
+#colorContainer {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 12px; /* Smaller button font size */
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#revertColorBtn {
+  background-color: #e74c3c; /* Red color for the revert button */
+  color: #ffffff;
+}
