@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let originalColor;
-
   function getMorningColor() {
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = Math.floor(Math.random() * 50) + 50;
     const lightness = Math.floor(Math.random() * 20) + 80;
-    return `hsl(0, 0%, ${lightness}%)`;
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
 
   function getAfternoonColor() {
@@ -40,27 +40,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function applyColorsToContent(backgroundColor, fontColor) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        action: "applyColor",
+        color: backgroundColor,
+        fontColor: fontColor,
+      });
+    });
+  }
+
   function setTheme() {
     const timeOfDay = getTimeOfDay();
-    const colorContainer = document.getElementById("colorContainer");
     const timeOfDayText = document.getElementById("timeOfDay");
 
-    if (!originalColor) {
-      originalColor =
-        getComputedStyle(document.body).backgroundColor || "#ffffff";
-    }
-
-    // background color based on the time of day
     let backgroundColor;
     let fontColor;
     switch (timeOfDay) {
       case "morning":
         backgroundColor = getMorningColor();
-        fontColor = "#333333";
+        fontColor = "#000000";
         break;
       case "afternoon":
         backgroundColor = getAfternoonColor();
-        fontColor = "#333333";
+        fontColor = "#000000";
         break;
       case "evening":
         backgroundColor = getEveningColor();
@@ -76,8 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
     }
 
-    colorContainer.style.backgroundColor = backgroundColor;
-
     applyColorsToContent(backgroundColor, fontColor);
 
     timeOfDayText.textContent = `Time of Day: ${
@@ -85,22 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }`;
   }
 
-  function applyColorsToContent(backgroundColor, fontColor) {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {
-        action: "applyColor",
-        color: backgroundColor,
-        fontColor: fontColor, // Include font color in the message
-      });
-    });
-  }
-
-  // revert to the original color
   function revertToOriginalColor() {
-    if (originalColor) {
-      applyColorsToContent(originalColor);
-      colorContainer.style.backgroundColor = originalColor;
-    }
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.reload(tabs[0].id);
+    });
   }
 
   document
@@ -114,6 +103,4 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", function () {
       revertToOriginalColor();
     });
-
-  // ...
 });

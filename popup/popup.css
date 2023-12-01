@@ -6,7 +6,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5; /* Light background color */
+  background-color: rgb(98, 242, 242);
+  color: white;
 }
 
 .popup-container {
@@ -14,37 +15,50 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  width: 250px; /* Adjust the width as needed */
+  background-color: #3498db;
+  width: 250px;
+  color: white;
 }
 
 h1 {
-  color: #333333;
-  font-size: 1.5em; /* Larger heading font size */
+  color: white;
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
 p {
-  color: #666666;
-  font-size: 14px; /* Regular font size */
+  color: white;
+  font-size: 14px;
   margin-bottom: 15px;
 }
 
 #colorContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+b {
+  color: white;
 }
 
 button {
-  padding: 8px 16px;
-  font-size: 12px; /* Smaller button font size */
+  padding: 8px 12px;
+  font-size: 14px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  margin-right: 10px;
+  outline: none;
+}
+
+#changeColorBtn {
+  background-color: aqua;
 }
 
 #revertColorBtn {
-  background-color: #e74c3c; /* Red color for the revert button */
+  background-color: #e74c3c;
   color: #ffffff;
+}
+button:active,
+button:focus {
+  background-color: transparent;
 }
