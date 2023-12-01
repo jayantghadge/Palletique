@@ -12,6 +12,12 @@ Palletique is a Chrome Extension that enhances your browsing experience by dynam
 
 - **Time-of-Day Themes**: Unique browser designs tailored to different moments throughout the day.
 
+## Gif Demo
+
+See Palletique in action:
+
+![gif](https://github.com/jayantghadge/Palletique/assets/88991259/40c09bc0-3b77-4514-b787-d379049a1189)
+
 
 ## Installation
 
