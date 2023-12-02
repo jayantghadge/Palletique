@@ -4,14 +4,6 @@
 
 Palletique is a Chrome Extension that enhances your browsing experience by dynamically changing your browser theme based on the time of day. This personalized touch adds a visually pleasing atmosphere to your web surfing, making it both enjoyable and functional. The extension is crafted using HTML, CSS, and JavaScript to seamlessly integrate with your Chrome browser.
 
-## Features
-
-- **Dynamic Themes**: Browser theme changes dynamically with the time of day—morning, afternoon, evening, and night.
-
-- **Personalized Experience**: Enjoy a customized and comfortable browsing atmosphere.
-
-- **Time-of-Day Themes**: Unique browser designs tailored to different moments throughout the day.
-
 ## Gif Demo
 
 See Palletique in action:
